@@ -1,0 +1,6 @@
+psql -U alperentasdelen -d postgres -c "\copy product_categories(category_id, name) FROM 'product_categories.csv' DELIMITER ',' CSV HEADER;"
+psql -U alperentasdelen -d postgres -c "\copy products(product_id, name, category_id, weight, price) FROM 'products.csv' DELIMITER ',' CSV HEADER;"
+psql -U alperentasdelen -d postgres -c "\copy customers(customer_id, name, surname, address, state, gender) FROM 'customers.csv' DELIMITER ',' CSV HEADER;"
+psql -U alperentasdelen -d postgres -c "\copy orders(order_id, customer_id, order_time, shipping_time, status) FROM 'orders.csv' DELIMITER ',' CSV HEADER;"
+psql -U alperentasdelen -d postgres -c "\copy shopping_carts(order_id, product_id, amount) FROM 'shopping_carts.csv' DELIMITER ',' CSV HEADER;"
+psql -U alperentasdelen -d postgres -c "\copy refunds(order_id, reason) FROM 'refunds.csv' DELIMITER ',' CSV HEADER;"
