@@ -56,7 +56,7 @@ CREATE TABLE customers (
   name VARCHAR(255) NOT NULL,
   surname VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  state VARCHAR(255) NOT NULL-- ,
+  state VARCHAR(255) NOT NULL,
   gender VARCHAR(255) NOT NULL
 );
 
