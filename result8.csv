@@ -1,0 +1,50 @@
+category,product_name,refunded_orders,product_rank
+Accessories,Power Strip,14,1
+Accessories,Wireless Charger,13,2
+Accessories,USB Hub,11,3
+Accessories,Portable Charger,9,4
+Audio Equipment,Projector,11,1
+Audio Equipment,Bluetooth Speaker,7,2
+Audio Equipment,Microphone,7,2
+Cameras,Digital Camera,15,1
+Cameras,Action Camera,12,2
+Cameras,Camera,10,3
+Cameras,Webcam,10,3
+Cameras,Security Camera,7,5
+Desktop Computers,All-in-One PC,9,1
+Desktop Computers,Desktop Computer,5,2
+Gaming Consoles,Gaming Console,14,1
+Headsets,Wireless Earbuds,19,1
+Headsets,Bluetooth Earbuds,13,2
+Headsets,Noise-Canceling Headphones,12,3
+Headsets,Gaming Headset,7,4
+Headsets,Headphones,5,5
+Keyboards,Gaming Keyboard,11,1
+Keyboards,Keyboard,9,2
+Keyboards,Wireless Mouse and Keyboard Combo,9,2
+Keyboards,Wireless Keyboard,6,4
+Laptops,Laptop,11,1
+Mice,Gaming Mouse,9,1
+Mice,Mouse,8,2
+Mice,Wireless Mouse,7,3
+Mobile Devices,Smartphone,13,1
+Mobile Devices,E-book Reader,6,2
+Monitors,4K Monitor,20,1
+Monitors,Monitor,10,2
+Monitors,Gaming Monitor,9,3
+Monitors,Curved Monitor,8,4
+Monitors,UltraWide Monitor,3,5
+Networking Devices,Router,12,1
+Networking Devices,Smart Thermostat,11,2
+Networking Devices,WiFi Range Extender,7,3
+Networking Devices,Wireless Router,6,4
+Printers,Printer,8,1
+Printers,Printer Scanner Copier,8,1
+Storage Devices,External SSD,12,1
+Storage Devices,External Hard Drive,10,2
+Storage Devices,Flash Drive,10,2
+Tablets,Graphics Tablet,9,1
+Tablets,Tablet,8,2
+Wearable Technology,VR Headset,11,1
+Wearable Technology,Smartwatch,7,2
+Wearable Technology,Fitness Tracker,6,3
