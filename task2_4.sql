@@ -71,6 +71,3 @@ FROM DayOfWeekRevenue
 GROUP BY weekday
 ORDER BY avg_daily_revenue DESC
 LIMIT 3;
-
-/*LIMIT 3;*/
-
