@@ -93,51 +93,51 @@ alltasks:
 compare1:
 	make task1
 	echo "comparing task2_1:"
-	python3 compare1.py
+	python3 compare.py result1.csv answers/answer1.csv
 
 compare2:
 	make task2
 	echo "comparing task2_2:"
-	python3 compare2.py
+	python3 compare.py result2.csv answers/answer2.csv
 
 compare3:
 	make task3
 	echo "comparing task2_3:"
-	python3 compare3.py
+	python3 compare.py result3.csv answers/answer3.csv
 
 compare4:
 	make task4
 	echo "comparing task2_4:"
-	python3 compare4.py
+	python3 compare.py result4.csv answers/answer4.csv
 
 compare5:
 	make task5
 	echo "comparing task2_5:"
-	python3 compare5.py
+	python3 compare.py result5.csv answers/answer5.csv
 
 compare6:
 	make task6
 	echo "comparing task2_6:"
-	python3 compare6.py
+	python3 compare.py result6.csv answers/answer6.csv
 
 compare7:
 	make task7
 	echo "comparing task2_7:"
-	python3 compare7.py
+	python3 compare.py result7.csv answers/answer7.csv
 
 compare8:
 	make task8
 	echo "comparing task2_8:"
-	python3 compare8.py
+	python3 compare.py result8.csv answers/answer8.csv
 
 compareall:
 	make alltasks
 	echo "comparing all tasks:"
-	python3 compare1.py
-	python3 compare2.py
-	python3 compare3.py
-	python3 compare4.py
-	python3 compare5.py
-	python3 compare6.py
-	python3 compare7.py
-	python3 compare8.py
+	python3 compare.py result1.csv answers/answer1.csv
+	python3 compare.py result2.csv answers/answer2.csv
+	python3 compare.py result3.csv answers/answer3.csv
+	python3 compare.py result4.csv answers/answer4.csv
+	python3 compare.py result5.csv answers/answer5.csv
+	python3 compare.py result6.csv answers/answer6.csv
+	python3 compare.py result7.csv answers/answer7.csv
+	python3 compare.py result8.csv answers/answer8.csv
