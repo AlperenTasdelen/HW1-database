@@ -9,7 +9,6 @@ status:
 
 run:
 	psql -U alperentasdelen -d postgres -f task1.sql -A -F ','
-	./run2.sh
 	./pushtables.sh
 
 clean:
