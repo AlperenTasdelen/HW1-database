@@ -41,6 +41,13 @@
     file.
 */
 
+/*
+    I would prefer materialized view because the data provided by e-commerce here is not frequently changed and we need
+    physically represented pre-computed data in order to quickly provide customer data.
+    Precomputed and stored data is efficient and periodic update is unnecessary.
+    Unfortunately virtual view is not suitable because speed is important in this case.
+*/
+
 DROP MATERIALIZED VIEW IF EXISTS customer_view;
 
 CREATE MATERIALIZED VIEW customer_view AS

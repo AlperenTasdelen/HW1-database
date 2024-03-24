@@ -146,22 +146,24 @@ compareall:
 
 trigger1:
 	echo "triggering task2_1:"
-	psql -U alperentasdelen -d postgres -f task3_1.sql -A -F- ','
+	make run
+	psql -U alperentasdelen -d postgres -f task3_1.sql -A -F ','
 
 trigger2:
 	echo "triggering task2_2:"
-	psql -U alperentasdelen -d postgres -f task3_2.sql -A -F- ','
+	make run
+	psql -U alperentasdelen -d postgres -f task3_2.sql -A -F ','
 
 trigger2deneme:
 	echo "testing trigger2:"
-	psql -U alperentasdelen -d postgres -f trigger2deneme.sql -A -F- ','
+	psql -U alperentasdelen -d postgres -f trigger2deneme.sql -A -F ','
 
 view:
-	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F- ','
+	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F ','
 
 viewcontrol:
-	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F- ','
-	psql -U alperentasdelen -d postgres -f viewcontrol.sql -o viewresult.csv -A -F- ','
+	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F ','
+	psql -U alperentasdelen -d postgres -f viewcontrol.sql -o viewresult.csv -A -F ','
 	head -n -1 viewresult.csv > temp.csv
 	mv temp.csv viewresult.csv
 	python3 compare.py viewresult.csv answers/answer12-view-content.csv
