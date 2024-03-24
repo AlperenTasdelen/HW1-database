@@ -50,7 +50,7 @@ DROP FUNCTION IF EXISTS update_avg_price;
 
 CREATE TABLE category_avg_prices (
   category_id INTEGER PRIMARY KEY,
-  avg_price FLOAT
+  avg_price DECIMAL (10, 2) NOT NULL
 );
 
 INSERT INTO category_avg_prices (category_id, avg_price)
@@ -59,31 +59,28 @@ FROM products
 GROUP BY category_id
 ORDER BY category_id;
 
-/*
-CREATE OR REPLACE FUNCTION update_avg_price()
-RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION update_avg_price_function() RETURNS TRIGGER AS $$
+DECLARE
+    avg_price DECIMAL(10, 2);
 BEGIN
-    DECLARE category_avg DECIMAL(10, 2);
-    
-    -- Calculate the new average price for the category of the newly added product
-    SELECT AVG(price) INTO category_avg_prices
+    SELECT AVG(price) INTO avg_price
     FROM products
     WHERE category_id = NEW.category_id;
     
-    -- Update the category_avg_prices table with the new average price
     UPDATE category_avg_prices
-    SET avg_price = category_avg
+    SET avg_price = avg_price
     WHERE category_id = NEW.category_id;
     
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER update_avg_price_trigger
+CREATE TRIGGER update_avg_price
 AFTER INSERT ON products
 FOR EACH ROW
-EXECUTE FUNCTION update_avg_price();
-*/
+EXECUTE FUNCTION update_avg_price_function();
+
+
 
 
 
