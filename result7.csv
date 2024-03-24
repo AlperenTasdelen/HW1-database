@@ -1,13 +1,13 @@
-gender,month_name,total_money_spent,order_count
-F,February ,4894245,2626
-F,January  ,5985040,3083
-F,March    ,749570,372
-F,,11628855,6081
-M,February ,3354010,1740
-M,January  ,3333920,1794
-M,March    ,373685,258
-M,,7061615,3792
-Total,February ,8248255,4366
-Total,January  ,9318960,4877
-Total,March    ,1123255,630
-Total,,18690470,9873
+gender,month,cart_total
+F,February ,32335745
+F,January  ,34528990
+F,March    ,4205015
+F,,71069750
+M,February ,19492815
+M,January  ,20169720
+M,March    ,2467200
+M,,42129735
+,February ,51828560
+,January  ,54698710
+,March    ,6672215
+,,113199485
