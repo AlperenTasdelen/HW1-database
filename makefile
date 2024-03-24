@@ -155,3 +155,13 @@ trigger2:
 trigger2deneme:
 	echo "testing trigger2:"
 	psql -U alperentasdelen -d postgres -f trigger2deneme.sql -A -F- ','
+
+view:
+	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F- ','
+
+viewcontrol:
+	psql -U alperentasdelen -d postgres -f task3_3.sql -A -F- ','
+	psql -U alperentasdelen -d postgres -f viewcontrol.sql -o viewresult.csv -A -F- ','
+	head -n -1 viewresult.csv > temp.csv
+	mv temp.csv viewresult.csv
+	python3 compare.py viewresult.csv answers/answer12-view-content.csv
