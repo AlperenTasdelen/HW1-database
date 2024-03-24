@@ -1,47 +1,4 @@
 /*
-    *product_categories*
-    category_id
-    name
-
-    *products*
-    product_id
-    name
-    category_id
-    weight
-    price
-    
-    *customers*
-    customer_id
-    name
-    surname
-    address
-    state
-    gender
-
-    *orders*
-    order_id
-    customer_id
-    order_time
-    shipping_time
-    status
-
-    *shopping_carts*
-    order_id
-    product_id
-    amount
-
-    *refunds*
-    order_id
-    reason
-
-    Create a customer view that allows customers to see only their shopping cart, and
-    orders. They should not have access to refunds, orders, details of other customers (like in a
-    realistic e-commerce site) Which type of view you would choose, standard or materialized?
-    What are the reasons? Explain briefly in a few sentences and put your SQL query in the .sql
-    file.
-*/
-
-/*
     I would prefer materialized view because the data provided by e-commerce here is not frequently changed and we need
     physically represented pre-computed data in order to quickly provide customer data.
     Precomputed and stored data is efficient and periodic update is unnecessary.
