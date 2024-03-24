@@ -7,6 +7,9 @@ stop:
 status:
 	sudo service postgresql status
 
+enter:
+	psql -U alperentasdelen -d postgres
+
 run:
 	psql -U alperentasdelen -d postgres -f task1.sql -A -F ','
 	./pushtables.sh
@@ -140,3 +143,11 @@ compareall:
 	python3 compare.py result6.csv answers/answer6.csv
 	python3 compare.py result7.csv answers/answer7.csv
 	python3 compare.py result8.csv answers/answer8.csv
+
+trigger1:
+	echo "triggering task2_1:"
+	psql -U alperentasdelen -d postgres -f task3_1.sql -A -F- ','
+
+trigger2:
+	echo "triggering task2_2:"
+	psql -U alperentasdelen -d postgres -f task3_2.sql -A -F- ','
