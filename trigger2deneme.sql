@@ -1,0 +1,1 @@
+INSERT INTO shopping_carts (order_id, product_id, amount) VALUES ('ab70e2d3-a683-46e9-9c35-64c2da65384f','b9e96b5b-ff5d-4672-b756-6b29f42ca292',-5);

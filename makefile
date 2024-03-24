@@ -151,3 +151,7 @@ trigger1:
 trigger2:
 	echo "triggering task2_2:"
 	psql -U alperentasdelen -d postgres -f task3_2.sql -A -F- ','
+
+trigger2deneme:
+	echo "testing trigger2:"
+	psql -U alperentasdelen -d postgres -f trigger2deneme.sql -A -F- ','
