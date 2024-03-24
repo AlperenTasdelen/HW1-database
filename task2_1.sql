@@ -33,53 +33,51 @@
     *refunds*
     order_id
     reason
+
+    Find customers who returned their order after the order is completed. For each such customer,
+    list customer id, gender and the total amount of money that must be refunded, in ascending
+    order of customer ids. You must solve this using “partition by”.
 */
 
 
-WITH completed_orders AS (
-    SELECT c.customer_id, o.order_id, o.status, c.gender
-    FROM customers c, orders o, refunds r 
-    WHERE c.customer_id = o.customer_id
-    AND o.order_id = r.order_id
-    AND o.status = 'COMPLETED'
-)
-SELECT co.customer_id, co.gender, SUM(p.price * sc.amount) AS sum
-FROM completed_orders co, shopping_carts sc, products p
-WHERE co.order_id = sc.order_id
-AND sc.product_id = p.product_id
-GROUP BY co.customer_id, co.gender;
-
-
-/* PARTITION BY QUERY*/
-
-/*
-SELECT DISTINCT
-    customer_id,
-    gender,
-    SUM(price * amount) OVER (PARTITION BY customer_id, gender) AS sum
-FROM (
-    SELECT
-        c.customer_id,
-        c.gender,
-        p.price,
-        sc.amount
+WITH refunded_orders AS (
+    SELECT 
+        o.customer_id,
+        o.order_id,
+        SUM(p.price * sc.amount) AS refund_amount,
+        ROW_NUMBER() OVER(PARTITION BY o.customer_id ORDER BY o.customer_id) AS rn
     FROM 
-        customers c
-    JOIN 
-        orders o ON c.customer_id = o.customer_id
-    JOIN 
+        orders o
+    INNER JOIN 
         refunds r ON o.order_id = r.order_id
-    JOIN 
+    INNER JOIN 
         shopping_carts sc ON o.order_id = sc.order_id
-    JOIN 
+    INNER JOIN 
         products p ON sc.product_id = p.product_id
     WHERE 
         o.status = 'COMPLETED'
-    GROUP BY
+    GROUP BY 
+        o.customer_id, o.order_id
+),
+customers_refunds AS (
+    SELECT 
         c.customer_id,
         c.gender,
-        p.price,
-        sc.amount
-) AS completed_orders;
-
-*/
+        SUM(CASE WHEN r.refund_amount IS NULL THEN 0 ELSE r.refund_amount END) AS total_refund_amount
+    FROM 
+        customers c
+    LEFT JOIN 
+        refunded_orders r ON c.customer_id = r.customer_id
+    GROUP BY 
+        c.customer_id, c.gender
+)
+SELECT 
+    customer_id,
+    gender,
+    total_refund_amount AS sum
+FROM 
+    customers_refunds
+WHERE 
+    total_refund_amount > 0
+ORDER BY 
+    customer_id;
